@@ -2,6 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Button } from "./components/Button";
+import { Input } from "./components/Input";
 
 function App() {
   return (
@@ -15,6 +16,12 @@ function App() {
         children={"Children"}
         icon={false}
         handleClick={() => console.log("Clicked")}
+      />
+      <Input
+        label={"Label"}
+        type="text"
+        getValue={(word) => console.log(word)}
+        placeholder="Placeholder"
       />
     </div>
   );

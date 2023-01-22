@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export interface StyledButtonProps {
   color: string;
@@ -19,9 +19,9 @@ export const Button = styled.button<StyledButtonProps>`
   font-weight: 700;
   padding: 8px 10px;
   margin-top: 10px;
-  ${(props) =>
-    props.icon &&
-    css`
+  ${({ icon }) =>
+    icon &&
+    `
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -35,10 +35,9 @@ export const Button = styled.button<StyledButtonProps>`
         justify-content: center;
       }
     `}
-  ${(props) =>
-    props.add &&
-    css`
-      display: flex;
+  ${({ add }) =>
+    add &&
+    `display: flex;
       align-items: center;
       justify-content: center;
       .add {
