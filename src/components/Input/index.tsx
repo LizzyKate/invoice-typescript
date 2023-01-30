@@ -19,7 +19,11 @@ export const Input = (props: InputProps) => {
 
   return (
     <>
-      {props.label && <label htmlFor={props.label}>{props.label}</label>}
+      {props.label && (
+        <S.Label error={error} htmlFor={props.label}>
+          {props.label}
+        </S.Label>
+      )}
       <S.Input
         id={props.label}
         value={value}
