@@ -1,40 +1,57 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { useState } from "react";
 import "./App.css";
-import { Button } from "./components/Button";
-import { Input } from "./components/Input";
-import { SelectValue } from "./components/Select";
+import { Button, Card, ConfigProvider, Layout, theme, Breadcrumb } from "antd";
+import { Routes, Route } from "react-router";
+import SideBar from "./components/SideBar";
+import "./App.css";
+
+const { Header, Content, Footer } = Layout;
 
 function App() {
+  const { defaultAlgorithm, darkAlgorithm } = theme;
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const handleClick = () => {
+    setIsDarkMode((previousValue) => !previousValue);
+  };
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
   return (
-    <div className="App">
-      <Button
-        color="white"
-        backgroundColor="red"
-        width="120px"
-        add={true}
-        disabled={false}
-        children={"Children"}
-        icon={false}
-        handleClick={() => console.log("Clicked")}
-      />
-      <Input
-        label={"Label"}
-        type="text"
-        getValue={(word) => console.log(word)}
-        placeholder="Placeholder"
-        dark={false}
-      />
-      <SelectValue
-        label={"Label"}
-        getValue={(word) => console.log(word)}
-        options={[
-          { label: "Option 1", value: "option1" },
-          { label: "Option 2", value: "option2" },
-          { label: "Option 3", value: "option3" },
-        ]}
-      />
-    </div>
+    <ConfigProvider
+      theme={{
+        algorithm: isDarkMode ? darkAlgorithm : defaultAlgorithm,
+      }}
+    >
+      <Layout style={{ minHeight: "100vh" }}>
+        <SideBar handleClick={handleClick} mode={isDarkMode} />
+        <Layout className="site-layout">
+          <Header style={{ padding: 0, background: colorBgContainer }} />
+          <Content style={{ margin: "0 16px" }}>
+            <Breadcrumb style={{ margin: "16px 0" }}>
+              <Breadcrumb.Item>User</Breadcrumb.Item>
+              <Breadcrumb.Item>Bill</Breadcrumb.Item>
+            </Breadcrumb>
+            <div
+              style={{
+                padding: 24,
+                minHeight: 360,
+                background: colorBgContainer,
+              }}
+            >
+              Bill is a cat.
+            </div>
+          </Content>
+          <Footer style={{ textAlign: "center" }}>
+            Ant Design ©2023 Created by Ant UED
+          </Footer>
+        </Layout>
+        {/* <Card>
+        <Button onClick={handleClick}>
+          Change Theme to {isDarkMode ? "Light" : "Dark"}
+        </Button>
+      </Card> */}
+      </Layout>
+    </ConfigProvider>
   );
 }
 

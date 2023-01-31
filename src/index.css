@@ -35,3 +35,21 @@ h4 {
   line-height: 15px;
   letter-spacing: -0.25px;
 }
+.__footer{
+  position: absolute;
+  bottom: 25px;
+  width: 100%;
+
+}
+.__moon{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.__moon img {
+  transition: all 0.3s ease-in-out;
+}
+.__line{
+  margin: 32px 0;
+  border-top: 1px solid #494E6E;
+}
