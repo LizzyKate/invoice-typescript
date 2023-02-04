@@ -4,6 +4,8 @@ import { Button, Card, ConfigProvider, Layout, theme, Breadcrumb } from "antd";
 import { Routes, Route } from "react-router";
 import SideBar from "./components/SideBar";
 import "./App.css";
+import Drop from "./components/Dropdown";
+import Date from "./components/Date";
 
 const { Header, Content, Footer } = Layout;
 
@@ -38,18 +40,14 @@ function App() {
                 background: colorBgContainer,
               }}
             >
-              Bill is a cat.
+              <Drop />
+              <Date />
             </div>
           </Content>
           <Footer style={{ textAlign: "center" }}>
             Ant Design ©2023 Created by Ant UED
           </Footer>
         </Layout>
-        {/* <Card>
-        <Button onClick={handleClick}>
-          Change Theme to {isDarkMode ? "Light" : "Dark"}
-        </Button>
-      </Card> */}
       </Layout>
     </ConfigProvider>
   );

@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-
-import type { MenuProps } from "antd";
-import { Layout, Menu, Space, Row, Col } from "antd";
+import React from "react";
+import { Layout } from "antd";
 import logo from "../assets/images/logo.svg";
 import moon from "../assets/images/moon.svg";
 import profile from "../assets/images/profile.svg";
