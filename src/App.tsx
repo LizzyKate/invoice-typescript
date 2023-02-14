@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Button, Card, ConfigProvider, Layout, theme, Breadcrumb } from "antd";
+import { ConfigProvider, Layout, theme, Breadcrumb } from "antd";
 import { Routes, Route } from "react-router";
 import SideBar from "./components/SideBar";
 import "./App.css";
 import Drop from "./components/Dropdown";
 import Date from "./components/Date";
+import { SelectValue } from "./components/Select";
+import { Button } from "./components/Button ";
+import { Input } from "./components/Input";
 
 const { Header, Content, Footer } = Layout;
 
@@ -42,6 +45,24 @@ function App() {
             >
               <Drop />
               <Date />
+              {/* <SelectValue
+                getValue={() => {}}
+                options={[
+                  { label: "hey", value: "1" },
+                  { label: "hey", value: "2" },
+                ]}
+              />
+              <Button
+                handleClick={() => {}}
+                icon={false}
+                backgroundColor={"red"}
+                disabled={false}
+                color={"blue"}
+                width={"100px"}
+                add={false}
+                children={"hey"}
+              />
+              <Input getValue={() => {}} type="text" /> */}
             </div>
           </Content>
           <Footer style={{ textAlign: "center" }}>

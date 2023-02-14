@@ -8,9 +8,9 @@ const onChange: DatePickerProps["onChange"] = (date, dateString) => {
 };
 
 const Date: React.FC = () => (
-  <Space direction="vertical">
+  <Space direction="vertical" style={{ width: "100%" }}>
     <S.Label>Issue Date</S.Label>
-    <DatePicker size="middle" onChange={onChange} />
+    <DatePicker size="middle" onChange={onChange} style={{ width: "100%" }} />
   </Space>
 );
 

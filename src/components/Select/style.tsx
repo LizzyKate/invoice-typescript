@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { Select } from "antd";
 export interface StyledSelectProps {
   error?: boolean;
   dark?: boolean;
@@ -11,41 +11,34 @@ export const CustomSelectContainer = styled.div`
   width: 100%;
 `;
 
-export const Select = styled.select<StyledSelectProps>`
-  border: ${(props) => (props.error ? "1px solid red" : "1px solid #DFE3FA")};
-  border-radius: 4px;
-  width: 50%;
-  background: ${(props) => (props.dark ? "#1E2139" : "#FFFFFF")};
-  color: ${(props) => (props.dark ? "#ffffff" : "#0C0E16")};
-  font-size: 12px;
-  letter-spacing: -0.25px;
-  font-weight: 700;
-  padding: 6px 10px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  display: block;
-  line-height: 1.5;
-  background-clip: padding-box;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  &:focus {
-    color: #495057;
-    background-color: #fff;
-    border-color: #80bdff;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-  }
-  &:disabled {
-    color: #6c757d;
-    background-color: #e9ecef;
-  }
-  option {
-    /* Add your custom styles here */
-    background-color: #fff;
-    appearance: none;
+export const SelectStyle = styled(Select)<StyledSelectProps>`
+  &&& {
+    border: ${(props) => (props.error ? "1px solid red" : "1px solid #DFE3FA")};
+    border-radius: 4px;
+    width: 50%;
+    background: ${(props) => (props.dark ? "#1E2139" : "#FFFFFF")};
+    color: ${(props) => (props.dark ? "#ffffff" : "#0C0E16")};
+    font-size: 12px;
+    letter-spacing: -0.25px;
+    font-weight: 700;
+    padding: 6px 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: block;
+    line-height: 1.5;
     background-clip: padding-box;
-  }
-  opt-group {
-    background: red;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    &:focus {
+      color: #495057;
+      background-color: #fff;
+      border-color: #80bdff;
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+    &:disabled {
+      color: #6c757d;
+      background-color: #e9ecef;
+    }
   }
 `;
 

@@ -1,37 +1,83 @@
-import React from "react";
+import React, { useState } from "react";
 import { DownOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Dropdown, message, Space } from "antd";
+import { Dropdown, message, Space, Checkbox } from "antd";
 import * as S from "./style";
 
-const onClick: MenuProps["onClick"] = ({ key }) => {
-  message.info(`Click on item ${key}`);
+const Drop: React.FC = () => {
+  const [checked, setChecked] = useState<string | undefined>(undefined);
+
+  const onClick: MenuProps["onClick"] = ({ key }) => {
+    message.info(`${key}`);
+    setChecked(key);
+  };
+
+  const items: MenuProps["items"] = [
+    {
+      label: (
+        <Space>
+          <Checkbox
+            style={{ color: "#7C5DFA", fontSize: "16px" }}
+            checked={checked === "1"}
+            onClick={() => setChecked("1")}
+          />
+          <span>Draft</span>
+        </Space>
+      ),
+      key: "Draft",
+    },
+    {
+      label: (
+        <Space>
+          <Checkbox
+            style={{ color: "#7C5DFA", fontSize: "16px" }}
+            checked={checked === "2"}
+            onClick={() => setChecked("2")}
+          />
+          <span>Pending</span>
+        </Space>
+      ),
+      key: "Pending",
+    },
+    {
+      label: (
+        <Space>
+          <Checkbox
+            style={{ color: "#7C5DFA", fontSize: "16px" }}
+            checked={checked === "3"}
+            onClick={() => setChecked("3")}
+          />
+          <span>Paid</span>
+        </Space>
+      ),
+      key: "Paid",
+    },
+  ];
+
+  return (
+    <Dropdown
+      menu={{ items, onClick }}
+      dropdownRender={(menu) => (
+        <div>
+          {menu}
+          <S.Drop
+            onMouseDown={(e) => e.preventDefault()}
+            onClick={() => onClick}
+          ></S.Drop>
+        </div>
+      )}
+    >
+      <button onClick={(e) => e.preventDefault()}>
+        <Space>
+          <S.title>Filter by status</S.title>
+          <DownOutlined
+            size={1}
+            style={{ fontSize: "10px", color: "#7C5DFA" }}
+          />
+        </Space>
+      </button>
+    </Dropdown>
+  );
 };
-
-const items: MenuProps["items"] = [
-  {
-    label: "1st menu item",
-    key: "1",
-  },
-  {
-    label: "2nd menu item",
-    key: "2",
-  },
-  {
-    label: "3rd menu item",
-    key: "3",
-  },
-];
-
-const Drop: React.FC = () => (
-  <Dropdown menu={{ items, onClick }}>
-    <button onClick={(e) => e.preventDefault()}>
-      <Space>
-        <S.title>Filter by status</S.title>
-        <DownOutlined size={1} style={{ fontSize: "10px", color: "#7C5DFA" }} />
-      </Space>
-    </button>
-  </Dropdown>
-);
 
 export default Drop;

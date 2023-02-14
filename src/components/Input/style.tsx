@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { Input as AntInput } from "antd";
 
 export interface StyledInputProps {
   error?: boolean;
   dark?: boolean;
 }
 
-export const Input = styled.input<StyledInputProps>`
+export const Input = styled(AntInput)<StyledInputProps>`
   border: ${(props) => (props.error ? "1px solid red" : "1px solid #DFE3FA")};
   border-radius: 4px;
   width: 100%;

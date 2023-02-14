@@ -27,9 +27,9 @@ export const SelectValue = (props: SelectProps) => {
         </S.Label>
       )}
 
-      <S.Select
+      <S.SelectStyle
+        bordered={false}
         value={value}
-        onChange={handleChange}
         error={error}
         onBlur={() => setError(false)}
         onFocus={() => setError(false)}
@@ -42,7 +42,7 @@ export const SelectValue = (props: SelectProps) => {
             {option.label}
           </option>
         ))}
-      </S.Select>
+      </S.SelectStyle>
     </S.CustomSelectContainer>
   );
 };
