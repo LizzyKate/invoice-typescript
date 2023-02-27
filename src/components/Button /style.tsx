@@ -3,30 +3,29 @@ import { Button as AntButton } from "antd";
 
 export interface StyledButtonProps {
   color: string;
-  backgroundColor: string;
+  backgroundcolor: string;
   disabled: boolean;
-  width: string;
-  add: boolean;
-  icon: boolean;
+  add?: boolean;
+  icon?: boolean;
+  hoverbackgroundcolor?: string;
 }
 
 export const Button = styled(AntButton)<StyledButtonProps>`
   &&& {
-    background-color: ${(props: StyledButtonProps) => props.backgroundColor};
+    background-color: ${(props: StyledButtonProps) => props.backgroundcolor};
     color: ${(props: StyledButtonProps) => props.color};
-    width: ${(props: StyledButtonProps) => props.width};
     border-radius: 24px;
-    font-size: 12px;
-    letter-spacing: -0.25px;
+    font-size: 16px;
     font-weight: 700;
-    padding: 8px 10px;
+    height: 100%;
+    padding: 13px 24px;
     margin-top: 10px;
     ${({ icon }) =>
       icon &&
       `
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       .icon {
         border-radius: 50%;
         background-color: #fff;
@@ -35,6 +34,7 @@ export const Button = styled(AntButton)<StyledButtonProps>`
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-right: 10px;
       }
     `}
     ${({ add }) =>
@@ -48,6 +48,7 @@ export const Button = styled(AntButton)<StyledButtonProps>`
     `}
     &&&:hover {
       border: none;
+      background: ${(props: StyledButtonProps) => props.hoverbackgroundcolor};
     }
   }
 `;

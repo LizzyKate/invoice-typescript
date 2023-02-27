@@ -18,8 +18,8 @@ const Drop: React.FC = () => {
         <Space>
           <Checkbox
             style={{ color: "#7C5DFA", fontSize: "16px" }}
-            checked={checked === "1"}
-            onClick={() => setChecked("1")}
+            checked={checked === "Draft"}
+            onClick={() => setChecked("Draft")}
           />
           <span>Draft</span>
         </Space>
@@ -31,8 +31,8 @@ const Drop: React.FC = () => {
         <Space>
           <Checkbox
             style={{ color: "#7C5DFA", fontSize: "16px" }}
-            checked={checked === "2"}
-            onClick={() => setChecked("2")}
+            checked={checked === "Pending"}
+            onClick={() => setChecked("Pending")}
           />
           <span>Pending</span>
         </Space>
@@ -44,8 +44,8 @@ const Drop: React.FC = () => {
         <Space>
           <Checkbox
             style={{ color: "#7C5DFA", fontSize: "16px" }}
-            checked={checked === "3"}
-            onClick={() => setChecked("3")}
+            checked={checked === "Paid"}
+            onClick={() => setChecked("Paid")}
           />
           <span>Paid</span>
         </Space>

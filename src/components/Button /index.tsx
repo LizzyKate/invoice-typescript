@@ -3,7 +3,7 @@ import { IoMdAdd } from "react-icons/io";
 
 export interface ButtonProps extends S.StyledButtonProps {
   children: React.ReactNode;
-  handleClick: () => void;
+  onClick: () => void;
 }
 
 export const Button = (props: ButtonProps) => {
