@@ -7,7 +7,7 @@ export const title = styled.p`
 `;
 
 export const Drop = styled.div`
-  width: 192px;
+  width: 150px;
   box-shadow: 0px 10px 20px rgba(72, 84, 159, 0.25);
   border-radius: 8px;
 `;

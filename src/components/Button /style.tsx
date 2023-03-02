@@ -8,14 +8,16 @@ export interface StyledButtonProps {
   add?: boolean;
   icon?: boolean;
   hoverbackgroundcolor?: string;
+  width?: string;
 }
 
 export const Button = styled(AntButton)<StyledButtonProps>`
   &&& {
     background-color: ${(props: StyledButtonProps) => props.backgroundcolor};
     color: ${(props: StyledButtonProps) => props.color};
+    width: ${(props: StyledButtonProps) => props.width};
     border-radius: 24px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     height: 100%;
     padding: 13px 24px;
@@ -25,12 +27,12 @@ export const Button = styled(AntButton)<StyledButtonProps>`
       `
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       .icon {
         border-radius: 50%;
         background-color: #fff;
-        width: 32px;
-        height: 32px;
+        width: 18px;
+        height: 18px;
         display: flex;
         align-items: center;
         justify-content: center;
